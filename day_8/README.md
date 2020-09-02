@@ -1,2 +1,2 @@
 upload file firebase
-login localstorage
+login localstorage jwt
