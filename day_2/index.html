@@ -5,14 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="test.js"></script> 
+    <!-- <script src="test.js"></script>  -->
 </head>
 
 <body>
+    <input type="text" id="one" />
+    <!-- Method 1 -->
+    <!-- <button onclick="ButtonClick()">Click</button> -->
+    <!-- Method 2 -->
+    <button id="two">Click</button>
+    <div id="three"></div>
 
 </body>
-<!-- <script>
-    console.log('Hello');
-</script> -->
+<script>
+
+    //Method 1
+    // function ButtonClick () {
+    //     let inputValue = document.getElementById("one").value;
+    //     console.log(inputValue)
+
+    //     document.getElementById('three').innerHTML = inputValue;
+    // }
+    //Method 2
+    document.getElementById('two').addEventListener('click', () => {
+        let inputValue = document.getElementById("one").value;
+        console.log(inputValue)
+        document.getElementById('three').innerHTML = inputValue;
+    })
+</script>
 
 </html>
