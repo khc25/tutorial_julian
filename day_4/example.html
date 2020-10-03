@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>form</title>
+    <link rel="stylesheet" href="style.css">
+    </link>
+</head>
+
+<body>
+    <form>
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name">
+            </li>
+            <li>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="user_email">
+            </li>
+            <li>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+            </li>
+
+            <button id="submit" type="button">Submit</button>
+        </ul>
+    </form>
+
+    <div id="demo"></div>
+
+</body>
+<script>
+    // submit data by post method
+    $("#submit").click(function (e) {
+        //after submitted the form, always add e.preventDefault();
+        e.preventDefault();
+        console.log(e);
+        //get every element
+        var name = document.getElementById('name').value;
+        var mail = document.getElementById('mail').value;
+        var msg = document.getElementById('msg').value;
+
+        //post request
+        $.post(`http://localhost:8080/post?name=${name}&email=${mail}&msg=${msg}`, {
+        }, function (result) {
+            // display in html, become string
+            $("#demo").html(JSON.stringify(result));
+            console.log(result);
+            //handle error and success
+            if(result.status === 200) {
+                // redirect to new page
+                window.open('./sucessPage.html')
+            } else {
+                alert('fail')
+            }
+        });
+    });
+</script>
+
+</html>
