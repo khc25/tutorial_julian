@@ -1,6 +1,12 @@
+
 basic xhttp request (ajax)
 
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data
+
+Web server
+example of web server
+https://my-json-server.typicode.com/typicode/demo/comments
+
 
 RESTful API
 -GET  get data from sevrer
